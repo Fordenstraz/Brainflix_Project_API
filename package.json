@@ -1,0 +1,19 @@
+{
+  "name": "corey-bickford-brainflix-api",
+  "version": "1.0.0",
+  "description": "API for Brainflix project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fordenstraz/corey-bickford-brainflix-api.git"
+  },
+  "author": "Corey Bickford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fordenstraz/corey-bickford-brainflix-api/issues"
+  },
+  "homepage": "https://github.com/Fordenstraz/corey-bickford-brainflix-api#readme"
+}
