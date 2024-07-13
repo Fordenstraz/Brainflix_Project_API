@@ -1,26 +1,36 @@
+//Initialize Express
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const port = process.env.port || 7770;
-const { v4: uuidv4 } = require("uuid");
+app.use(express.json());
+
+//Initialize CORS
+const cors = require("cors");
+const { CORS_ORIGIN } = process.env;
+app.use(cors({ CORS_ORIGIN }));
+
+//Initialize Dotenv
 require("dotenv").config();
 
-app.use(express.static("public"));
-app.use(express.json());
-app.use(cors());
+//Initialize UUID
+const { v4: uuidv4 } = require("uuid");
 
-//GET the list of videos:
-app.get("/videos", (req, res) => {
-	res.send();
-});
+//Declare port
+const port = process.env.PORT || 7770;
+
+//Connect static folder
+app.use(express.static("public"));
+
+//Video Routes
+const videoRoutes = require("./routes/videos");
+app.use("/videos", videoRoutes);
 
 //GET a specific video:
-app.get("/videos/:id", (req, res) => {
+app.get("/:id", (req, res) => {
 	res.send();
 });
 
 //POST a video:
-app.post("", (req, res) => {
+app.post("/upload", (req, res) => {
 	res.status();
 	res.send();
 });
