@@ -24,11 +24,6 @@ app.use(express.static("public"));
 const videoRoutes = require("./routes/videos");
 app.use("/videos", videoRoutes);
 
-//GET a specific video:
-app.get("/:id", (req, res) => {
-	res.send();
-});
-
 //POST a video:
 app.post("/upload", (req, res) => {
 	res.status();
