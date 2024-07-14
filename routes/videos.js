@@ -12,7 +12,15 @@ const videoDataJSON = require(path.join(dataPath));
 
 //GET the list of videos:
 router.get("/", (req, res) => {
-	res.json(videoDataJSON);
+	const basicVideoList = videoDataJSON.map(video => {
+		return {
+			id: video.id,
+			title: video.title,
+			channel: video.channel,
+			image: video.image,
+		};
+	});
+	res.json(basicVideoList);
 });
 
 //GET a specific video:
@@ -69,11 +77,9 @@ router.post("/upload", (req, res) => {
 			error => {
 				//error handling:
 				if (error) {
-					return res
-						.status(500)
-						.json({
-							error: "Error while attempting to write file",
-						});
+					return res.status(500).json({
+						error: "Error while attempting to write file",
+					});
 				}
 				res.status(201).json(newVideo);
 			}
