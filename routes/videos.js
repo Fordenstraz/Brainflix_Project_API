@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
 			title: video.title,
 			channel: video.channel,
 			image: video.image,
+			altText: video.altText,
 		};
 	});
 	res.json(basicVideoList);
